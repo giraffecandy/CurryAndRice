@@ -10,8 +10,8 @@ import kotlin.random.Random.Default.nextInt
 
 class MainActivity : AppCompatActivity() {
 
-    val people = arrayOf<String>("シンデレラ", "ジャスミン", "ラプンツェル", "パスカル")
-    val food = arrayOf<String>("ケーキ", "パフェ", "スコーン", "サンドイッチ", "バター")
+    private val people = arrayOf<String>("シンデレラ", "ジャスミン", "ラプンツェル", "パスカル")
+    private val food = arrayOf<String>("ケーキ", "パフェ", "スコーン", "サンドイッチ", "バター")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
 
     fun savedFood(view: View?) {
         val randomName = random()
-        val index = Random.nextInt(4)
-        val name = people[index.nextInt()]
+        val index = (0..3).random()
+        val name = people[index]
         nameTextView.text = name + "に"
 
         foodTextView.text = food[Random().nextInt(4)] + "を"
